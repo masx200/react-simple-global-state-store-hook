@@ -18,7 +18,7 @@ export default function(jsonobject) {
     const eventhandler = () => {
       var newstate = reactsimpleglobalstatestore[key];
       if (newstate !== state) {
-        console.log("接受事件" + eventname);
+        console.log("接受事件 " + eventname);
         setstate(newstate);
       }
     };
