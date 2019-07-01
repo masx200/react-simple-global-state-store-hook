@@ -23,6 +23,7 @@ yarn add https://github.com/masx200/react-simple-global-state-store-hook.git
 以下示例使用了`es6`的解构赋值方法
 
 ```javascript
+import useGlobalstate from "react-simple-global-state-store-hook";
 let {
   全局状态的名称: [状态, 设置状态]
 } = useGlobalstate({ 全局状态的名称: 初始值 });
@@ -31,7 +32,7 @@ let {
 例如:要生成全局状态 `number` ,初始值为 `78546`
 
 ```javascript
-import useGlobalstate from "react-simple-global-state-store";
+import useGlobalstate from "react-simple-global-state-store-hook";
 function Htest() {
   let {
     number: [number, setnumber]
