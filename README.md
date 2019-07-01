@@ -2,6 +2,8 @@
 
 使用 react hooks 实现的简单全局状态管理 react-simple-global-state-store-hook
 
+## 仅仅使用44行代码写成的极简react全局状态管理库!
+
 [查看源代码](https://github.com/masx200/react-simple-global-state-store-hook/blob/master/src/react-simple-global-state-store.js)
 
 ## 局部安装
