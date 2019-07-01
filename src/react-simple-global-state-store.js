@@ -15,6 +15,7 @@ export default function(jsonobject) {
   //   console.log("输入值", newjsonobj);
   var newobjtoreturn = {};
   Object.keys(newjsonobj).forEach(key => {
+  	const eventname="globalstatechange-"+key
     let [state, setstate] = useState(newjsonobj[key]);
     if ("undefined" === typeof reactsimpleglobalstatestore[key]) {
       reactsimpleglobalstatestore[key] = newjsonobj[key];
@@ -24,7 +25,7 @@ export default function(jsonobject) {
       var newstate = reactsimpleglobalstatestore[key];
       if (newstate !== state) {
         // console.log(state, newstate);
-        console.log("接受事件" + "globalstatechange");
+        console.log("接受事件" + eventname);
         //   console.log(e);
 
         // console.log("全局状态改变", reactsimpleglobalstatestore);
@@ -33,9 +34,9 @@ export default function(jsonobject) {
       }
     };
     useEffect(() => {
-      window.addEventListener("globalstatechange", eventhandler);
+      window.addEventListener(eventname, eventhandler);
       return () => {
-        window.removeEventListener("globalstatechange", eventhandler);
+        window.removeEventListener(eventname, eventhandler);
       };
     }, []);
 
@@ -46,9 +47,9 @@ export default function(jsonobject) {
         if (newstate !== state) {
           //   console.log(state, newstate);
           reactsimpleglobalstatestore[key] = newstate;
-          console.log("触发事件" + "globalstatechange");
+          console.log("触发事件 " + eventname);
           console.log("全局状态改变", reactsimpleglobalstatestore);
-          window.dispatchEvent(new Event("globalstatechange"));
+          window.dispatchEvent(new Event(eventname));
         }
       }
     ];
