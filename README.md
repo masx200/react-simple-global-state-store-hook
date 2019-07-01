@@ -53,7 +53,7 @@ function Htest() {
 
 ## 原理介绍
 
-内部使用了 react hooks 中的 useState 和 useEffect
+内部使用了 react hooks 中的 `useState` 和 `useEffect`
 
 给每个要全局状态管理的变量,设置事件`"globalstatechange"`监听器 ,接收到事件后,把变量新的值从内部变量`reactsimpleglobalstatestore`中取出,然后执行`setstate`
 
