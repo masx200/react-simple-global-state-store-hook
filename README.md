@@ -64,6 +64,8 @@ function Htest() {
 
 内部使用了 react hooks 中的 `useState` 和 `useEffect`
 
+把事件名称设置为"globalstatechange"+全局状态名称,确保了一个全局状态的改变只会刷新使用这个状态的变量,不刷新其他变量,减少性能损耗
+
 给每个要全局状态管理的变量,设置事件`"globalstatechange"`监听器 ,接收到事件后,把变量新的值从内部变量`reactsimpleglobalstatestore`中取出,然后执行`setstate`
 
 当有全局变量改变时,把变量新的值存入内部变量`reactsimpleglobalstatestore`中,触发事件`"globalstatechange"`,
