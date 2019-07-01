@@ -1,6 +1,6 @@
 import useGlobalstate from "./react-simple-global-state-store";
 // alert("hello world");
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { render } from "react-dom";
 function Htest() {
   //   let {
