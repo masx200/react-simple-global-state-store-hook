@@ -20,6 +20,14 @@ yarn add https://github.com/masx200/react-simple-global-state-store-hook.git
 
 只能在 react 的函数式组件中使用!
 
+以下示例使用了`es6`的解构赋值方法
+
+```javascript
+let {
+  全局状态的名称: [状态, 设置状态]
+} = useGlobalstate({ 全局状态的名称: 初始值 });
+```
+
 例如:要生成全局状态 `number` ,初始值为 `78546`
 
 ```javascript
@@ -58,3 +66,5 @@ function Htest() {
 给每个要全局状态管理的变量,设置事件`"globalstatechange"`监听器 ,接收到事件后,把变量新的值从内部变量`reactsimpleglobalstatestore`中取出,然后执行`setstate`
 
 当有全局变量改变时,把变量新的值存入内部变量`reactsimpleglobalstatestore`中,触发事件`"globalstatechange"`,
+
+如果多个组件使用同一个全局状态,则改变一个这些组件就会同步数据
