@@ -15,7 +15,7 @@ export default function(jsonobject) {
   //   console.log("输入值", newjsonobj);
   var newobjtoreturn = {};
   Object.keys(newjsonobj).forEach(key => {
-  	const eventname="globalstatechange-"+key
+    const eventname = "globalstatechange-" + key;
     let [state, setstate] = useState(newjsonobj[key]);
     if ("undefined" === typeof reactsimpleglobalstatestore[key]) {
       reactsimpleglobalstatestore[key] = newjsonobj[key];
