@@ -68,3 +68,10 @@ function Htest() {
 当有全局变量改变时,把变量新的值存入内部变量`reactsimpleglobalstatestore`中,触发事件`"globalstatechange"`,
 
 如果多个组件使用同一个全局状态,则改变一个这些组件就会同步数据
+
+
+# React Hooks
+
+Hook 是 React 16.8 中的新增功能。它们允许您在不编写类的情况下使用状态和其他 React 功能。
+
+https://reactjs.org/docs/hooks-overview.html#state-hook
