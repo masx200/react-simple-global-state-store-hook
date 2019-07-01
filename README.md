@@ -15,3 +15,5 @@ cnpm install  --save https://github.com/masx200/react-simple-global-state-store-
 ```
 yarn add https://github.com/masx200/react-simple-global-state-store-hook.git
 ```
+
+[简单的示例](https://github.com/masx200/react-simple-global-state-store-hook/blob/master/src/index.js)
