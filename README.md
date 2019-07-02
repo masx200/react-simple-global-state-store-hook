@@ -4,7 +4,7 @@ https://github.com/masx200/react-simple-global-state-store-hook
 
 使用 react hooks 实现的简单全局状态管理 `react-simple-global-state-store-hook`
 
-# 跟 redux 对比,极为简洁!
+# 跟 redux 对比,极为简洁!抛弃redux！
 
 `redux`主要由`store`,`action`,`reducer`等等组成,过于庞大负杂,繁琐
 
