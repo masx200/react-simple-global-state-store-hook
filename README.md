@@ -2,7 +2,7 @@
 
 https://github.com/masx200/react-simple-global-state-store-hook
 
-使用 react hooks 实现的简单全局状态管理 `react-simple-global-state-store-hook`，可以跨组件共享全局状态
+基于 react hooks 实现的简单全局状态管理 `react-simple-global-state-store-hook`，可以跨组件共享全局状态
 
 # 跟 redux 对比,极为简洁!抛弃redux！
 
