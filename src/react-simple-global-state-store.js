@@ -21,7 +21,7 @@ export default function(jsonobject) {
         console.log("接受事件 " + eventname);
         setstate(newstate);
       //}
-    }, [state]);
+    }, []);
     useEffect(() => {
       window.addEventListener(eventname, eventhandler);
       return () => {
