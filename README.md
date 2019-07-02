@@ -14,6 +14,9 @@ https://github.com/masx200/react-simple-global-state-store-hook
 
 [查看源代码](https://github.com/masx200/react-simple-global-state-store-hook/blob/master/src/react-simple-global-state-store.js)
 
+### 演示网址
+https://masx200.github.io/index.html#/react-simple-global-state-store-hook
+
 ## 局部安装
 
 ```
