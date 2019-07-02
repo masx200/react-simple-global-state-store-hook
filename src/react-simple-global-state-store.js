@@ -17,10 +17,10 @@ export default function(jsonobject) {
     }
     const eventhandler = useCallback(() => {
       const newstate = reactsimpleglobalstatestore[key];
-      if (newstate !== state) {
+      //if (newstate !== state) {
         console.log("接受事件 " + eventname);
         setstate(newstate);
-      }
+      //}
     }, [state]);
     useEffect(() => {
       window.addEventListener(eventname, eventhandler);
