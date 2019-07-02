@@ -68,7 +68,7 @@ function Htest() {
       <button
         onClick={() => {
           setnumber(number * 3);
-          //修改全局状态number,其他使用了全局状态number的组件也会刷新数据
+          /*修改全局状态number,其他使用了全局状态number的组件也会刷新数据*/
         }}
       >
         修改number
