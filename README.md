@@ -43,17 +43,23 @@ const [count, setCount] = useState(0);
 
 ```javascript
 import useGlobalstate from "react-simple-global-state-store-hook";
-let {
+const {
   全局状态的名称: [count, setCount]
 } = useGlobalstate({ 全局状态的名称: '初始值' });
 ```
+也可以在一句中，定义多个全局共享状态
 
+```javascript
+const {
+  count: [count, setCount],name: [name, setname]
+} = useGlobalstate({ count: 0 ,name:"well"});
+```
 例如:要生成全局状态 `number` ,初始值为 `78546`
 
 ```javascript
 import useGlobalstate from "react-simple-global-state-store-hook";
 function Htest() {
-  let {
+  const {
     number: [number, setnumber]
   } = useGlobalstate({ number: 78546 });
 
