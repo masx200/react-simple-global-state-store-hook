@@ -17,13 +17,12 @@ export default function(jsonobject) {
     }
     const eventhandler = useCallback(() => {
       const newstate = reactsimpleglobalstatestore[key];
-      //if (newstate !== state) {
         console.log("接受事件 " + eventname);
         setstate(newstate);
-      //}
     }, []);
     useEffect(() => {
       window.addEventListener(eventname, eventhandler);
+window.dispatchEvent(new Event(eventname));
       return () => {
         window.removeEventListener(eventname, eventhandler);
       };
