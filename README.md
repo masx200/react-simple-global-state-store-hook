@@ -84,6 +84,9 @@ function Htest() {
 
 内部使用了 react hooks 中的 `useState` 和 `useEffect`
 
+
+使用了发布者订阅者设计模式，通过在window上触发事件和接收事件的方式，来通知组件刷新
+
 把事件名称设置为`"globalstatechange"+状态名称`,确保了一个全局状态的改变只会刷新使用这个状态的变量,不刷新其他变量,减少性能损耗
 
 给每个要全局状态管理的变量,设置事件`"globalstatechange"+状态名称`监听器 ,接收到事件后,把变量新的值从内部变量`reactsimpleglobalstatestore`中取出,然后执行`setstate`,通知组件刷新
@@ -94,6 +97,8 @@ function Htest() {
 
 如果一个全局状态在多个组件中被多次初始化,则只有第一次初始化的值存在全局状态中
 
+
+当组件被卸载时，清除事件监听器，防止内存泄漏
 # React Hooks
 
 Hook 是 React 16.8 中的新增功能。它们允许您在不编写类的情况下使用状态和其他 React 功能。
