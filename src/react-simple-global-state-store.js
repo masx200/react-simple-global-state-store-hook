@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 const reactsimpleglobalstatestore = {};
 function newobjjson(obj) {
   if (typeof obj !== "object") {
@@ -15,13 +15,14 @@ export default function(jsonobject) {
     if ("undefined" === typeof reactsimpleglobalstatestore[key]) {
       reactsimpleglobalstatestore[key] = newjsonobj[key];
     }
-    const eventhandler = () => {
+    const eventhandler = useCallback(() => {
       const newstate = reactsimpleglobalstatestore[key];
       if (newstate !== state) {
         console.log("接受事件 " + eventname);
         setstate(newstate);
       }
-    };
+    }, [state]);
+
     useEffect(() => {
       window.addEventListener(eventname, eventhandler);
       return () => {
