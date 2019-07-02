@@ -4,7 +4,7 @@ https://github.com/masx200/react-simple-global-state-store-hook
 
 基于 react hooks 实现的极简全局状态管理 `react-simple-global-state-store-hook`，可以跨组件共享全局状态
 
-# 跟 redux 对比,极为简洁!抛弃redux！
+# 跟 redux 对比,极为简洁!抛弃 redux！
 
 `redux`主要由`store`,`action`,`reducer`等等组成,过于庞大负杂,繁琐
 
@@ -45,15 +45,18 @@ const [count, setCount] = useState(0);
 import useGlobalstate from "react-simple-global-state-store-hook";
 const {
   全局状态的名称: [count, setCount]
-} = useGlobalstate({ 全局状态的名称: '初始值' });
+} = useGlobalstate({ 全局状态的名称: "初始值" });
 ```
+
 也可以在一句中，定义多个全局共享状态
 
 ```javascript
 const {
-  count: [count, setCount],name: [name, setname]
-} = useGlobalstate({ count: 0 ,name:"well"});
+  count: [count, setCount],
+  name: [name, setname]
+} = useGlobalstate({ count: 0, name: "well" });
 ```
+
 例如:要生成全局状态 `number` ,初始值为 `78546`
 
 ```javascript
@@ -90,7 +93,6 @@ function Htest() {
 
 内部使用了 react hooks 中的 `useState` 和 `useEffect`
 
-
 使用了发布者订阅者设计模式，通过在`window`上触发事件和接收事件的方式，来通知组件刷新，一个发布者对应多个订阅者
 
 把事件名称设置为`"globalstatechange"+状态名称`,确保了一个全局状态的改变只会刷新使用这个状态的变量,不刷新其他变量,减少性能损耗
@@ -102,7 +104,6 @@ function Htest() {
 如果多个组件使用同一个全局状态,则改变一个状态,这些组件就会同步数据,组件刷新
 
 如果一个全局状态在多个组件中被多次初始化,则只有第一次初始化的值存在全局状态中
-
 
 当组件被卸载时，清除事件监听器，防止内存泄漏
 
