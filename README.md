@@ -44,8 +44,8 @@ const [count, setCount] = useState(0);
 ```javascript
 import useGlobalstate from "react-simple-global-state-store-hook";
 let {
-  全局状态的名称: [状态, 设置状态]
-} = useGlobalstate({ 全局状态的名称: 初始值 });
+  全局状态的名称: [count, setCount]
+} = useGlobalstate({ 全局状态的名称: '初始值' });
 ```
 
 例如:要生成全局状态 `number` ,初始值为 `78546`
