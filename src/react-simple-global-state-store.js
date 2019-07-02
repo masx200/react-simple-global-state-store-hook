@@ -22,7 +22,6 @@ export default function(jsonobject) {
         setstate(newstate);
       }
     }, [state]);
-
     useEffect(() => {
       window.addEventListener(eventname, eventhandler);
       return () => {
