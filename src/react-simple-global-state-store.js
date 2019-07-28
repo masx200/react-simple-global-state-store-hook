@@ -6,15 +6,18 @@ function newobjjson(obj) {
   }
   return JSON.parse(JSON.stringify(obj));
 }
-  function isobject(o) {
-    return (
-      typeof o === "object" &&
-      Object.prototype.toString.call(o) === "[object Object]" &&
-      o.__proto__ === Object.prototype
-    );
-  }
+function isobject(o) {
+  return (
+    typeof o === "object" &&
+    Object.prototype.toString.call(o) === "[object Object]" &&
+    o.__proto__ === Object.prototype
+  );
+}
 export default function(jsonobject) {
-!isobject( jsonobject )&&throw Error("invalid object")
+  if (!isobject(jsonobject)) {
+    throw Error("invalid object");
+  }
+  // &&
   const newjsonobj = newobjjson(jsonobject);
   const newobjtoreturn = {};
   Object.keys(newjsonobj).forEach(key => {
@@ -38,10 +41,18 @@ export default function(jsonobject) {
     newobjtoreturn[key] = [
       state,
       newstate => {
-("undefined"===typeof newstate||
+        if (
+          "undefined" === typeof newstate ||
+          "function" === typeof newstate ||
+          newstate === null
+        ) {
+          throw Error("invalid state");
+        }
 
-"function"===typeof newstate)&&throw Error("invalid state")
-        if (JSON.parse(JSON.stringify(newstate)) !== JSON.parse(JSON.stringify(state))) {
+        if (
+          JSON.parse(JSON.stringify(newstate)) !==
+          JSON.parse(JSON.stringify(state))
+        ) {
           reactsimpleglobalstatestore[key] = newstate;
           console.log("触发事件 " + eventname);
           console.log("全局状态改变", reactsimpleglobalstatestore);

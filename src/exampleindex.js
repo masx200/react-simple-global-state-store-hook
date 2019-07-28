@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import useGlobalstate from "./react-simple-global-state-store";
 // alert("hello world");
 import React from "react";
