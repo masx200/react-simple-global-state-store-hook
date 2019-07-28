@@ -30,7 +30,7 @@ export default function(jsonobject) {
     newobjtoreturn[key] = [
       state,
       newstate => {
-        if (newstate !== state) {
+        if (JSON.parse(JSON.stringify(newstate)) !== JSON.parse(JSON.stringify(state))) {
           reactsimpleglobalstatestore[key] = newstate;
           console.log("触发事件 " + eventname);
           console.log("全局状态改变", reactsimpleglobalstatestore);
