@@ -6,7 +6,15 @@ function newobjjson(obj) {
   }
   return JSON.parse(JSON.stringify(obj));
 }
+  function isobject(o) {
+    return (
+      typeof o === "object" &&
+      Object.prototype.toString.call(o) === "[object Object]" &&
+      o.__proto__ === Object.prototype
+    );
+  }
 export default function(jsonobject) {
+!isobject( jsonobject )&&throw Error("invalid object")
   const newjsonobj = newobjjson(jsonobject);
   const newobjtoreturn = {};
   Object.keys(newjsonobj).forEach(key => {
