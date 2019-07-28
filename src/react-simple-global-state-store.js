@@ -38,9 +38,9 @@ export default function(jsonobject) {
     newobjtoreturn[key] = [
       state,
       newstate => {
-"undefined"===typeof newstate||
+("undefined"===typeof newstate||
 
-"function"===typeof newstate&&throw Error("invalid state")
+"function"===typeof newstate)&&throw Error("invalid state")
         if (JSON.parse(JSON.stringify(newstate)) !== JSON.parse(JSON.stringify(state))) {
           reactsimpleglobalstatestore[key] = newstate;
           console.log("触发事件 " + eventname);
