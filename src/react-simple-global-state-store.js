@@ -50,8 +50,8 @@ export default function(jsonobject) {
         }
 
         if (
-          JSON.parse(JSON.stringify(newstate)) !==
-          JSON.parse(JSON.stringify(state))
+          JSON.stringify(newstate) !==
+          JSON.stringify(state)
         ) {
           reactsimpleglobalstatestore[key] = newstate;
           console.log("触发事件 " + eventname);
