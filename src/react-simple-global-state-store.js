@@ -19,7 +19,7 @@ export default function(jsonobject) {
   if (!isobject(jsonobject)) {
     throw Error("invalid object");
   }
-  // &&
+  
   const newjsonobj = newobjjson(jsonobject);
   const newobjtoreturn = {};
   Object.keys(newjsonobj).forEach(key => {
