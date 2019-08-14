@@ -1,13 +1,14 @@
 {
     "scripts": {},
     "name": "react-simple-global-state-store-hook",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "main": "./src/react-simple-global-state-store.js",
     "license": "MIT",
-    "dependencies": {
-        "react": "^16.8.6"
-    },
+    "dependencies": {},
     "repository": "https://github.com/masx200/react-simple-global-state-store-hook.git",
     "author": "masx200 <34191203+masx200@users.noreply.github.com>",
-    "description": "使用react hooks实现的简单全局状态管理 react-simple-global-state-store-hook"
+    "description": "使用react hooks实现的简单全局状态管理 react-simple-global-state-store-hook",
+    "peerDependencies": {
+        "react": "^16.8.6"
+    }
 }
