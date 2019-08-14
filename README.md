@@ -10,7 +10,7 @@ https://github.com/masx200/react-simple-global-state-store-hook
 
 `react-simple-global-state-store-hook`只管理状态仓库,修改全局状态的方法返回给组件内部调用,就跟使用`useState`一样简单!
 
-## 仅仅使用 44 行代码写成的极简 react 全局状态管理库!
+## 仅仅使用 几十 行代码写成的极简 react 全局状态管理库!
 
 [查看源代码](https://github.com/masx200/react-simple-global-state-store-hook/blob/master/src/react-simple-global-state-store.js)
 
