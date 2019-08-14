@@ -15,6 +15,7 @@ https://github.com/masx200/react-simple-global-state-store-hook
 [查看源代码](https://github.com/masx200/react-simple-global-state-store-hook/blob/master/src/react-simple-global-state-store.js)
 
 ### 演示网址
+
 https://masx200.github.io/index.html#/react-simple-global-state-store-hook
 
 ## 局部安装
@@ -96,7 +97,7 @@ function Htest() {
 
 内部使用了 react hooks 中的 `useState` 和 `useEffect`
 
-使用了通过在`window`上触发事件和接收事件的方式，来通知组件刷新，一个事件触发对应多个事件监听
+使用了通过在`EventTarget`上触发事件和接收事件的方式，来通知组件刷新，一个事件触发对应多个事件监听
 
 把事件名称设置为`"globalstatechange"+状态名称`,确保了一个全局状态的改变只会刷新使用这个状态的变量,不刷新其他变量,减少性能损耗
 
