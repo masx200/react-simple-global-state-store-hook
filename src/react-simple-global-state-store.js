@@ -1,4 +1,6 @@
 import { useState, useEffect, useCallback } from "react";
+
+const temptarget = new EventTarget();
 const reactsimpleglobalstatestore = {};
 function newobjjson(obj) {
   if (typeof obj !== "object") {
@@ -32,10 +34,10 @@ export default function(jsonobject) {
       setstate(newstate);
     }, []);
     useEffect(() => {
-      window.addEventListener(eventname, eventhandler);
-      window.dispatchEvent(new Event(eventname));
+      temptarget.addEventListener(eventname, eventhandler);
+      temptarget.dispatchEvent(new Event(eventname));
       return () => {
-        window.removeEventListener(eventname, eventhandler);
+        temptarget.removeEventListener(eventname, eventhandler);
       };
     }, []);
     newobjtoreturn[key] = [
@@ -49,14 +51,11 @@ export default function(jsonobject) {
           throw Error("invalid state");
         }
 
-        if (
-          JSON.stringify(newstate) !==
-          JSON.stringify(state)
-        ) {
+        if (JSON.stringify(newstate) !== JSON.stringify(state)) {
           reactsimpleglobalstatestore[key] = newstate;
           console.log("触发事件 " + eventname);
           console.log("全局状态改变", reactsimpleglobalstatestore);
-          window.dispatchEvent(new Event(eventname));
+          temptarget.dispatchEvent(new Event(eventname));
         }
       }
     ];
