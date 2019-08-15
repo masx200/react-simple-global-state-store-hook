@@ -15,7 +15,7 @@ function isobject(o) {
     o.__proto__ === Object.prototype
   );
 }
-export default function(jsonobject) {
+export function useGlobalStore(jsonobject) {
   if (!isobject(jsonobject)) {
     throw Error("invalid object");
   }
