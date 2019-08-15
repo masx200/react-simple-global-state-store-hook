@@ -32,6 +32,18 @@ cnpm install  --save https://github.com/masx200/react-simple-global-state-store-
 yarn add https://github.com/masx200/react-simple-global-state-store-hook.git
 ```
 
+# 用法
+
+```javascript
+import {
+  useGlobalStore,
+  initGlobalState
+} from "react-simple-global-state-store-hook";
+```
+
+函数`initGlobalState`用来生成状态初始值
+函数`useGlobalStore`用来订阅全局状态
+
 ## 基础语法
 
 只能在 `react` 的函数式组件中使用!
@@ -48,31 +60,50 @@ const [count, setCount] = useState(0);
 使用`react-simple-global-state-store-hook`
 
 ```javascript
-import useGlobalstate from "react-simple-global-state-store-hook";
-const {
-  全局状态的名称: [count, setCount]
-} = useGlobalstate({ 全局状态的名称: "初始值" });
+import {
+  useGlobalStore,
+  initGlobalState
+} from "react-simple-global-state-store-hook";
+
+initGlobalState({
+  testnumber: "初始值数字",
+  testname: "初始值名字"
+});
+function component() {
+  const {
+    testname: [count, setCount]
+  } = useGlobalStore({ testname: "初始值" });
+  return <div>{count}</div>;
+}
 ```
 
-也可以在一句中，定义多个全局共享状态
+### 也可以在一句中，定义多个全局共享状态
 
 ```javascript
 const {
   count: [count, setCount],
   name: [name, setname]
-} = useGlobalstate({ count: 0, name: "well" });
+} = useGlobalStore({ count: 0, name: "well" });
 ```
 
-例如:要生成全局状态 `number` ,初始值为 `78546`
+# 例如
+
+要生成全局状态 `testnumber` ,初始值为 `88888785461111111`
 
 ```javascript
-import useGlobalstate from "react-simple-global-state-store-hook";
+import {
+  useGlobalStore,
+  initGlobalState
+} from "react-simple-global-state-store-hook";
+initGlobalState({
+  testnumber: 88888785461111111
+});
+//全局状态 number 生成 ,初始值为 88888785461111111
 function Htest() {
   const {
-    number: [number, setnumber]
-  } = useGlobalstate({ number: 78546 });
-
-  //全局状态 number 生成 ,初始值为 78546
+    testnumber: [number, setnumber]
+  } = useGlobalStore({ testnumber: 78546 });
+  //全局状态 number 已经 生成 ,不会重复生成初始值
 
   return (
     <div>
@@ -82,7 +113,7 @@ function Htest() {
       </p>
       <button
         onClick={() => {
-          setnumber(number * 3);
+          setnumber(number + 3);
           /*修改全局状态number,其他使用了全局状态number的组件也会刷新数据*/
         }}
       >

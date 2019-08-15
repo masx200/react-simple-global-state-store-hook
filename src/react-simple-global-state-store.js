@@ -30,7 +30,7 @@ export function useGlobalStore(jsonobject) {
     }
     const eventhandler = useCallback(() => {
       const newstate = reactsimpleglobalstatestore[key];
-      console.log("接受事件 " + eventname);
+      //   console.log("接受事件 " + eventname);
       setstate(newstate);
     }, []);
     useEffect(() => {
@@ -55,7 +55,7 @@ export function useGlobalStore(jsonobject) {
           reactsimpleglobalstatestore[key] = JSON.parse(
             JSON.stringify(newstate)
           );
-          console.log("触发事件 " + eventname);
+          //   console.log("触发事件 " + eventname);
           console.log("全局状态改变", reactsimpleglobalstatestore);
           temptarget.dispatchEvent(new Event(eventname));
         }
@@ -80,5 +80,6 @@ export function initGlobalState(jsonobject) {
     }
     newobjtoreturn[key] = reactsimpleglobalstatestore[key];
   });
+  console.log("全局状态生成", reactsimpleglobalstatestore);
   return newobjtoreturn;
 }
