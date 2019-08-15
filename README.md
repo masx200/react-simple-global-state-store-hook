@@ -42,6 +42,7 @@ import {
 ```
 
 函数`initGlobalState`用来生成状态初始值
+
 函数`useGlobalStore`用来订阅全局状态
 
 ## 基础语法
