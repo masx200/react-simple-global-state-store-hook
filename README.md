@@ -6,6 +6,8 @@ https://github.com/masx200/react-simple-global-state-store-hook
 
 # 跟 redux 对比,极为简洁!抛弃 redux！
 
+可以在任何组件中使用全局状态，所有组件最外层不需要包裹`provider`
+
 `redux`主要由`store`,`action`,`reducer`等等组成,过于庞大负杂,繁琐
 
 `react-simple-global-state-store-hook`只管理状态仓库,修改全局状态的方法返回给组件内部调用,就跟使用`useState`一样简单!
