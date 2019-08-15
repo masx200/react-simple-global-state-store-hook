@@ -19,7 +19,7 @@ export default function(jsonobject) {
   if (!isobject(jsonobject)) {
     throw Error("invalid object");
   }
-  
+
   const newjsonobj = newobjjson(jsonobject);
   const newobjtoreturn = {};
   Object.keys(newjsonobj).forEach(key => {
@@ -52,13 +52,33 @@ export default function(jsonobject) {
         }
 
         if (JSON.stringify(newstate) !== JSON.stringify(state)) {
-          reactsimpleglobalstatestore[key] = JSON.parse(JSON.stringify(newstate));;
+          reactsimpleglobalstatestore[key] = JSON.parse(
+            JSON.stringify(newstate)
+          );
           console.log("触发事件 " + eventname);
           console.log("全局状态改变", reactsimpleglobalstatestore);
           temptarget.dispatchEvent(new Event(eventname));
         }
       }
     ];
+  });
+  return newobjtoreturn;
+}
+export function initGlobalState(jsonobject) {
+  if (!isobject(jsonobject)) {
+    throw Error("invalid object");
+  }
+
+  const newjsonobj = newobjjson(jsonobject);
+  const newobjtoreturn = {};
+
+  Object.keys(newjsonobj).forEach(key => {
+    // const eventname = "globalstatechange-" + key;
+    // const [state, setstate] = useState(newjsonobj[key]);
+    if ("undefined" === typeof reactsimpleglobalstatestore[key]) {
+      reactsimpleglobalstatestore[key] = newjsonobj[key];
+    }
+    newobjtoreturn[key] = reactsimpleglobalstatestore[key];
   });
   return newobjtoreturn;
 }
