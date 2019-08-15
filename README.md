@@ -99,12 +99,12 @@ import {
 initGlobalState({
   testnumber: 88888785461111111
 });
-//全局状态 number 生成 ,初始值为 88888785461111111
+//全局状态 testnumber 生成 ,初始值为 88888785461111111
 function Htest() {
   const {
     testnumber: [number, setnumber]
   } = useGlobalStore({ testnumber: 78546 });
-  //全局状态 number 已经 生成 ,不会重复生成初始值
+  //全局状态 testnumber 已经 生成 ,不会重复生成初始值
 
   return (
     <div>
@@ -115,7 +115,7 @@ function Htest() {
       <button
         onClick={() => {
           setnumber(number + 3);
-          /*修改全局状态number,其他使用了全局状态number的组件也会刷新数据*/
+          /*修改全局状态 testnumber,其他使用了全局状态number的组件也会刷新数据*/
         }}
       >
         修改number
