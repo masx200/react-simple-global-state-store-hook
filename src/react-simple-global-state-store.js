@@ -46,7 +46,7 @@ export function useGlobalStore(jsonobject) {
 
     const eventhandler = useCallback(() => {
       const newstate = simpleglobalstatestore[key];
-      //   console.log("接受事件 " + eventname);
+      
       if (JSON.stringify(newstate) !== JSON.stringify(state))
         setstate(newstate);
     }, []);
@@ -62,16 +62,14 @@ export function useGlobalStore(jsonobject) {
       newstate => {
         if (
           isinvalidstate(newstate)
-          // "undefined" === typeof newstate ||
-          // "function" === typeof newstate ||
-          //  newstate === null||"symbol" === typeof newstate
+          
         ) {
           throw Error("invalid state");
         }
 
         if (JSON.stringify(newstate) !== JSON.stringify(state)) {
           simpleglobalstatestore[key] = JSON.parse(JSON.stringify(newstate));
-          //   console.log("触发事件 " + eventname);
+         
           console.log("全局状态改变", simpleglobalstatestore);
           temptarget.dispatchEvent(new Event(eventname));
         }
