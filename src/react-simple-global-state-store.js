@@ -46,7 +46,7 @@ export function useGlobalStore(jsonobject) {
         if (
           "undefined" === typeof newstate ||
           "function" === typeof newstate ||
-          newstate === null
+          newstate === null||"symbol" === typeof newstate
         ) {
           throw Error("invalid state");
         }
