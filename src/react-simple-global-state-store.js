@@ -1,8 +1,11 @@
 import { useState, useEffect, useCallback } from "react";
-function isinvalidstate(newstate){
-return "undefined" === typeof newstate ||
-          "function" === typeof newstate ||
-          newstate === null||"symbol" === typeof newstate
+function isinvalidstate(newstate) {
+  return (
+    "undefined" === typeof newstate ||
+    "function" === typeof newstate ||
+    newstate === null ||
+    "symbol" === typeof newstate
+  );
 }
 const temptarget = new EventTarget();
 const simpleglobalstatestore = {};
@@ -28,27 +31,24 @@ export function useGlobalStore(jsonobject) {
   const newobjtoreturn = {};
   Object.keys(newjsonobj).forEach(key => {
     const eventname = "globalstatechange-" + key;
-    
+
     if ("undefined" === typeof simpleglobalstatestore[key]) {
       simpleglobalstatestore[key] = newjsonobj[key];
     }
-const initialstate="undefined"!==simpleglobalstatestore[key]?
-simpleglobalstatestore[key]:
-newjsonobj[key]
-if(isinvalidstate(initialstate)){
-throw Error("invalid state");
-}
-const [state, setstate] = useState(
-initialstate
-);
-
-
+    const initialstate =
+      "undefined" !== simpleglobalstatestore[key]
+        ? simpleglobalstatestore[key]
+        : newjsonobj[key];
+    if (isinvalidstate(initialstate)) {
+      throw Error("invalid state");
+    }
+    const [state, setstate] = useState(initialstate);
 
     const eventhandler = useCallback(() => {
       const newstate = simpleglobalstatestore[key];
       //   console.log("接受事件 " + eventname);
-if (JSON.stringify(newstate) !== JSON.stringify(state))
-      setstate(newstate);
+      if (JSON.stringify(newstate) !== JSON.stringify(state))
+        setstate(newstate);
     }, []);
     useEffect(() => {
       temptarget.addEventListener(eventname, eventhandler);
@@ -61,18 +61,16 @@ if (JSON.stringify(newstate) !== JSON.stringify(state))
       state,
       newstate => {
         if (
-isinvalidstate(newstate)
-         // "undefined" === typeof newstate ||
-         // "function" === typeof newstate ||
-        //  newstate === null||"symbol" === typeof newstate
+          isinvalidstate(newstate)
+          // "undefined" === typeof newstate ||
+          // "function" === typeof newstate ||
+          //  newstate === null||"symbol" === typeof newstate
         ) {
           throw Error("invalid state");
         }
 
         if (JSON.stringify(newstate) !== JSON.stringify(state)) {
-          simpleglobalstatestore[key] = JSON.parse(
-            JSON.stringify(newstate)
-          );
+          simpleglobalstatestore[key] = JSON.parse(JSON.stringify(newstate));
           //   console.log("触发事件 " + eventname);
           console.log("全局状态改变", simpleglobalstatestore);
           temptarget.dispatchEvent(new Event(eventname));
@@ -91,7 +89,6 @@ export function initGlobalState(jsonobject) {
   const newobjtoreturn = {};
 
   Object.keys(newjsonobj).forEach(key => {
-
     if ("undefined" === typeof simpleglobalstatestore[key]) {
       simpleglobalstatestore[key] = newjsonobj[key];
     }
