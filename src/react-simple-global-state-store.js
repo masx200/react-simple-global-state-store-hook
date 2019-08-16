@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback } from "react";
 
 const temptarget = new EventTarget();
-const reactsimpleglobalstatestore = {};
+const simpleglobalstatestore = {};
 function newobjjson(obj) {
   if (typeof obj !== "object") {
     throw new TypeError("传入的参数必须是个object!");
@@ -25,11 +25,11 @@ export function useGlobalStore(jsonobject) {
   Object.keys(newjsonobj).forEach(key => {
     const eventname = "globalstatechange-" + key;
     const [state, setstate] = useState(newjsonobj[key]);
-    if ("undefined" === typeof reactsimpleglobalstatestore[key]) {
-      reactsimpleglobalstatestore[key] = newjsonobj[key];
+    if ("undefined" === typeof simpleglobalstatestore[key]) {
+      simpleglobalstatestore[key] = newjsonobj[key];
     }
     const eventhandler = useCallback(() => {
-      const newstate = reactsimpleglobalstatestore[key];
+      const newstate = simpleglobalstatestore[key];
       //   console.log("接受事件 " + eventname);
       setstate(newstate);
     }, []);
@@ -52,11 +52,11 @@ export function useGlobalStore(jsonobject) {
         }
 
         if (JSON.stringify(newstate) !== JSON.stringify(state)) {
-          reactsimpleglobalstatestore[key] = JSON.parse(
+          simpleglobalstatestore[key] = JSON.parse(
             JSON.stringify(newstate)
           );
           //   console.log("触发事件 " + eventname);
-          console.log("全局状态改变", reactsimpleglobalstatestore);
+          console.log("全局状态改变", simpleglobalstatestore);
           temptarget.dispatchEvent(new Event(eventname));
         }
       }
@@ -73,13 +73,12 @@ export function initGlobalState(jsonobject) {
   const newobjtoreturn = {};
 
   Object.keys(newjsonobj).forEach(key => {
-    // const eventname = "globalstatechange-" + key;
-    // const [state, setstate] = useState(newjsonobj[key]);
-    if ("undefined" === typeof reactsimpleglobalstatestore[key]) {
-      reactsimpleglobalstatestore[key] = newjsonobj[key];
+
+    if ("undefined" === typeof simpleglobalstatestore[key]) {
+      simpleglobalstatestore[key] = newjsonobj[key];
     }
-    newobjtoreturn[key] = reactsimpleglobalstatestore[key];
+    newobjtoreturn[key] = simpleglobalstatestore[key];
   });
-  console.log("全局状态生成", reactsimpleglobalstatestore);
+  console.log("全局状态生成", simpleglobalstatestore);
   return newobjtoreturn;
 }
