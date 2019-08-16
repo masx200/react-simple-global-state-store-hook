@@ -1,5 +1,9 @@
 import { useState, useEffect, useCallback } from "react";
-
+function isinvalidstate(newstate){
+return "undefined" === typeof newstate ||
+          "function" === typeof newstate ||
+          newstate === null||"symbol" === typeof newstate
+}
 const temptarget = new EventTarget();
 const simpleglobalstatestore = {};
 function newobjjson(obj) {
