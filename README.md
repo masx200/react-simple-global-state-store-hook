@@ -70,12 +70,12 @@ import {
 
 initGlobalState({
   testnumber: "初始值数字",
-  testname: "初始值名字"
+  全局状态testname: "初始值名字"
 });
 function component() {
   const {
-    testname: [count, setCount]
-  } = useGlobalStore({ testname: "初始值" });
+     全局状态testname: [count, setCount]
+  } = useGlobalStore({ 全局状态testname: "初始值" });
   return <div>{count}</div>;
 }
 ```
