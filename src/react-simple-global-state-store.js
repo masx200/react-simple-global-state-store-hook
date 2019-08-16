@@ -47,6 +47,7 @@ initialstate
     const eventhandler = useCallback(() => {
       const newstate = simpleglobalstatestore[key];
       //   console.log("接受事件 " + eventname);
+if (JSON.stringify(newstate) !== JSON.stringify(state))
       setstate(newstate);
     }, []);
     useEffect(() => {
