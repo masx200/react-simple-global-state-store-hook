@@ -35,6 +35,9 @@ export function useGlobalStore(jsonobject) {
 const initialstate="undefined"!==simpleglobalstatestore[key]?
 simpleglobalstatestore[key]:
 newjsonobj[key]
+if(isinvalidstate(initialstate)){
+throw Error("invalid state");
+}
 const [state, setstate] = useState(
 initialstate
 );
@@ -57,9 +60,10 @@ initialstate
       state,
       newstate => {
         if (
-          "undefined" === typeof newstate ||
-          "function" === typeof newstate ||
-          newstate === null||"symbol" === typeof newstate
+isinvalidstate(newstate)
+         // "undefined" === typeof newstate ||
+         // "function" === typeof newstate ||
+        //  newstate === null||"symbol" === typeof newstate
         ) {
           throw Error("invalid state");
         }
