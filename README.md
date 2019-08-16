@@ -10,7 +10,9 @@ https://github.com/masx200/react-simple-global-state-store-hook
 
 `redux`主要由`store`,`action`,`reducer`等等组成,过于庞大负杂,繁琐
 
-`react-simple-global-state-store-hook`只管理状态仓库,修改全局状态的方法返回给组件内部调用,就跟使用`useState`一样简单!
+`react-simple-global-state-store-hook`只管理状态仓库,修改全局状态的方法返回给组件内部调用,
+
+就跟使用`useState`一样简单!
 
 ## 仅仅使用 几十 行代码写成的极简 react 全局状态管理库!
 
@@ -43,7 +45,7 @@ import {
 
 函数`initGlobalState`用来生成状态初始值
 
-函数`useGlobalStore`用来订阅全局状态
+函数`useGlobalStore`用来订阅全局状态，组件状态与全局状态绑定
 
 ## 基础语法
 
