@@ -24,10 +24,19 @@ export function useGlobalStore(jsonobject) {
   const newobjtoreturn = {};
   Object.keys(newjsonobj).forEach(key => {
     const eventname = "globalstatechange-" + key;
-    const [state, setstate] = useState(newjsonobj[key]);
+    
     if ("undefined" === typeof simpleglobalstatestore[key]) {
       simpleglobalstatestore[key] = newjsonobj[key];
     }
+const initialstate="undefined"!==simpleglobalstatestore[key]?
+simpleglobalstatestore[key]:
+newjsonobj[key]
+const [state, setstate] = useState(
+initialstate
+);
+
+
+
     const eventhandler = useCallback(() => {
       const newstate = simpleglobalstatestore[key];
       //   console.log("接受事件 " + eventname);
