@@ -30,7 +30,7 @@ export function useGlobalStore(jsonobject) {
   const newjsonobj = newobjjson(jsonobject);
   const newobjtoreturn = {};
   Object.keys(newjsonobj).forEach(key => {
-    const eventname = "globalstatechange-" + key;
+    const eventname =   key;
 
     if ("undefined" === typeof simpleglobalstatestore[key]) {
       simpleglobalstatestore[key] = newjsonobj[key];
