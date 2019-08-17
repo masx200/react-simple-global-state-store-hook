@@ -48,7 +48,7 @@ export function useGlobalStore(jsonobject) {
       const newstate = simpleglobalstatestore[key];
 
       if (JSON.stringify(newstate) !== JSON.stringify(state))
-        setstate(newstate);
+        setstate(JSON.parse(JSON.stringify(newstate)));
     }, []);
     useEffect(() => {
       temptarget.addEventListener(eventname, eventhandler);
