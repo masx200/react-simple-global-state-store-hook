@@ -139,6 +139,8 @@ function Htest() {
 
 ## 原理介绍
 
+### 使用事件发布者订阅者模式
+
 内部使用了 react hooks 中的 `useState` 和 `useEffect`
 
 使用了通过在`EventTarget`上触发事件和接收事件的方式，来通知组件刷新，一个事件触发对应多个事件监听
