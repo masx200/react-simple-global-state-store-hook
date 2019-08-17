@@ -10,6 +10,8 @@ https://github.com/masx200/react-simple-global-state-store-hook
 
 # 跟 redux 对比,极为简洁!抛弃 redux！
 
+## 组件状态与全局状态双向绑定
+
 可以在任何组件中使用全局状态，所有组件最外层不需要包裹`provider`
 
 `redux`主要由`store`,`action`,`reducer`等等组成,过于庞大负杂,繁琐
@@ -49,7 +51,7 @@ import {
 
 函数`initGlobalState`用来生成状态初始值
 
-函数`useGlobalStore`用来订阅全局状态，组件状态与全局状态绑定
+函数`useGlobalStore`用来订阅全局状态，组件状态与全局状态双向绑定
 
 ## 基础语法
 
