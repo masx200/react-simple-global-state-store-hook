@@ -2,15 +2,13 @@
 
 https://github.com/masx200/react-simple-global-state-store-hook
 
-基于` react hooks ` 和`EventTarget` 实现的极简全局状态管理 库
+基于`react hooks` 和`EventTarget` 实现的极简全局状态管理 库
 
 ，可以跨组件共享全局状态，拥有高性能
 
-就像使用usesState一样使用全局状态,非常简洁
+就像使用 usesState 一样使用全局状态,非常简洁
 
 # 跟 redux 对比,极为简洁!抛弃 redux！
-
-
 
 基于 `react hooks`和`EventTarget` 实现
 
@@ -23,7 +21,6 @@ https://github.com/masx200/react-simple-global-state-store-hook
 组件状态改变时全局状态改变
 
 全局状态改变时组件状态改变
-
 
 ### 使用简单
 
@@ -97,7 +94,7 @@ initGlobalState({
 });
 function component() {
   const {
-     全局状态testname: [count, setCount]
+    全局状态testname: [count, setCount]
   } = useGlobalStore({ 全局状态testname: "初始值" });
   return <div>{count}</div>;
 }
