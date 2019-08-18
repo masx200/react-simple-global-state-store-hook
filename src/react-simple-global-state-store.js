@@ -52,7 +52,12 @@ export function useGlobalStore(jsonobject) {
     const eventhandler = useCallback(() => {
       const newstate = simpleglobalstatestore[key];
 
-      if (JSON.stringify(newstate) !== JSON.stringify(state))
+      if (
+
+!jsondeepequal(newstate,state)
+
+
+)
         setstate(JSON.parse(JSON.stringify(newstate)));
     }, []);
     useEffect(() => {
@@ -69,7 +74,8 @@ export function useGlobalStore(jsonobject) {
           throw Error("invalid state");
         }
 
-        if (JSON.stringify(newstate) !== JSON.stringify(state)) {
+        if ( !jsondeepequal(newstate,state)
+) {
           simpleglobalstatestore[key] = JSON.parse(JSON.stringify(newstate));
 
           console.log("全局状态改变", simpleglobalstatestore);
