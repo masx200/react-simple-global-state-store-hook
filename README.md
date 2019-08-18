@@ -10,13 +10,20 @@ https://github.com/masx200/react-simple-global-state-store-hook
 
 # 跟 redux 对比,极为简洁!抛弃 redux！
 
-## 组件状态与全局状态双向绑定
+
 
 基于 `react hooks`和`EventTarget` 实现
 
 可以在任何组件中使用全局状态，所有组件最外层不需要包裹`provider`
 
 `redux`主要由`store`,`action`,`reducer`等等组成,过于庞大负杂,繁琐
+
+## 组件状态与全局状态双向绑定
+
+组件状态改变时全局状态改变
+
+全局状态改变时组件状态改变
+
 
 ### 使用简单
 
