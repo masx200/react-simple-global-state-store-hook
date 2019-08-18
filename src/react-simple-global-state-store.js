@@ -1,19 +1,6 @@
 import { useState, useEffect, useCallback } from "react";
 
-function jsondeepequal(a,b){
 
-
-if(isinvalidstate(a)||isinvalidstate(b)){
-
-return false
-
-}
-
-if(typeof){
-return 
-
-}
-}
 function isinvalidstate(newstate) {
   return (
     "undefined" === typeof newstate ||
