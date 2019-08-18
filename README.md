@@ -2,9 +2,9 @@
 
 https://github.com/masx200/react-simple-global-state-store-hook
 
-基于 react hooks 实现的极简全局状态管理 库
+基于` react hooks ` 和`EventTarget` 实现的极简全局状态管理 库
 
-，可以跨组件共享全局状态，
+，可以跨组件共享全局状态，拥有高性能
 
 就像使用usesState一样使用全局状态,非常简洁
 
