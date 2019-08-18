@@ -18,9 +18,13 @@ https://github.com/masx200/react-simple-global-state-store-hook
 
 `redux`主要由`store`,`action`,`reducer`等等组成,过于庞大负杂,繁琐
 
+### 使用简单
+
 只管理状态仓库,修改全局状态的方法返回给组件内部调用,
 
 就跟使用`useState`一样简单!
+
+### 高性能 ，减少无用的组件刷新
 
 不使用`context`刷新组件，而是使用`setstate`只刷新单个组件
 
