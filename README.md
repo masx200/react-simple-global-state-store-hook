@@ -157,10 +157,6 @@ function Htest() {
 }
 ```
 
-<!--
-[简单的示例](https://github.com/masx200/react-simple-global-state-store-hook/blob/master/src/index.js)
--->
-
 # 为什么要写这个状态管理工具？
 
 因为
