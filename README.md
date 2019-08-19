@@ -187,6 +187,12 @@ function Htest() {
 
 由于事件监听函数是异步执行，所以组件状态刷新也是异步执行的
 
+# React
+
+React 是一个用于构建用户界面的 JavaScript 库。
+
+https://zh-hans.reactjs.org/tutorial/tutorial.html
+
 # React Hooks
 
 Hook 是 React 16.8 中的新增功能。它们允许您在不编写类的情况下使用状态和其他 React 功能。
