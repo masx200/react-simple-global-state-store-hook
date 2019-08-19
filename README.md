@@ -68,9 +68,11 @@ import {
 } from "react-simple-global-state-store-hook";
 ```
 
-函数`initGlobalState`用来生成状态初始值，参数为一个`object`，键名为全局状态名，键值为全局状态初始值
+### 函数`initGlobalState`用来生成状态初始值，
 
-函数`useGlobalStore`用来订阅全局状态，组件状态与全局状态双向绑定
+参数为一个`object`，键名为全局状态名，键值为全局状态初始值
+
+### 函数`useGlobalStore`用来订阅全局状态，组件状态与全局状态双向绑定
 
 ## 基础语法
 
