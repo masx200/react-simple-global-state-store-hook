@@ -1,12 +1,8 @@
-"use strict"
-
-export function getGlobalStates(){
-
-return newobjjson(simpleglobalstatestore)
-
+"use strict";
+export function getGlobalStates() {
+  return newobjjson(simpleglobalstatestore);
 }
 import { useState, useEffect, useCallback } from "react";
-
 function jsondeepequal(a, b) {
   return JSON.stringify(a) === JSON.stringify(b);
 }
@@ -37,12 +33,10 @@ export function useGlobalStore(jsonobject) {
   if (!isobject(jsonobject)) {
     throw Error("invalid object");
   }
-
   const newjsonobj = newobjjson(jsonobject);
   const newobjtoreturn = {};
   Object.keys(newjsonobj).forEach(key => {
     const eventname = key;
-
     if ("undefined" === typeof simpleglobalstatestore[key]) {
       simpleglobalstatestore[key] = newjsonobj[key];
     }
@@ -54,10 +48,8 @@ export function useGlobalStore(jsonobject) {
       throw Error("invalid state");
     }
     const [state, setstate] = useState(initialstate);
-
     const eventhandler = useCallback(() => {
       const newstate = simpleglobalstatestore[key];
-
       if (!jsondeepequal(newstate, state))
         setstate(JSON.parse(JSON.stringify(newstate)));
     }, []);
@@ -74,10 +66,8 @@ export function useGlobalStore(jsonobject) {
         if (isinvalidstate(newstate)) {
           throw Error("invalid state");
         }
-
         if (!jsondeepequal(newstate, state)) {
           simpleglobalstatestore[key] = JSON.parse(JSON.stringify(newstate));
-
           console.log("全局状态改变", simpleglobalstatestore);
           temptarget.dispatchEvent(new Event(eventname));
         }
@@ -90,10 +80,8 @@ export function initGlobalState(jsonobject) {
   if (!isobject(jsonobject)) {
     throw Error("invalid object");
   }
-
   const newjsonobj = newobjjson(jsonobject);
   const newobjtoreturn = {};
-
   Object.keys(newjsonobj).forEach(key => {
     if ("undefined" === typeof simpleglobalstatestore[key]) {
       simpleglobalstatestore[key] = newjsonobj[key];
