@@ -6,7 +6,7 @@ https://github.com/masx200/react-simple-global-state-store-hook
 
 ，可以跨组件共享全局状态，拥有高性能
 
-就像使用 usesState 一样使用全局状态,非常简洁
+就像使用 `useState` 一样使用全局状态,非常简洁
 
 # 跟 redux 对比,极为简洁!抛弃 redux！
 
