@@ -192,3 +192,9 @@ function Htest() {
 Hook 是 React 16.8 中的新增功能。它们允许您在不编写类的情况下使用状态和其他 React 功能。
 
 https://reactjs.org/docs/hooks-overview.html#state-hook
+
+# EventTarget
+
+EventTarget是一个由可以接收事件的对象实现的接口，并且可以为它们创建侦听器
+
+https://developer.mozilla.org/zh-CN/docs/Web/API/EventTarget
