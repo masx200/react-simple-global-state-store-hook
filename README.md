@@ -8,6 +8,15 @@ https://github.com/masx200/react-simple-global-state-store-hook
 
 就像使用 `useState` 一样使用全局状态,非常简洁
 
+# 使用简单,可能是使用方法最简单的全局状态管理工具！
+
+使用步骤只有两步，初始化全局状态，组件状态与全局状态双向绑定
+
+
+只管理状态仓库,修改全局状态的方法返回给组件内部调用,
+
+就跟使用`useState`一样简单!
+
 # 跟 redux 对比,极为简洁!抛弃 redux！
 
 基于 `react hooks`和`EventTarget` 实现
@@ -22,11 +31,7 @@ https://github.com/masx200/react-simple-global-state-store-hook
 
 全局状态改变时组件状态改变
 
-# 使用简单,可能是使用方法最简单的全局状态管理工具！
 
-只管理状态仓库,修改全局状态的方法返回给组件内部调用,
-
-就跟使用`useState`一样简单!
 
 ### 高性能 ，减少无用的组件刷新
 
