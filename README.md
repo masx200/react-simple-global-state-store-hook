@@ -48,13 +48,13 @@ https://masx200.github.io/index.html#/react-simple-global-state-store-hook
 
 ## 局部安装
 
-```
+```powershell
 cnpm install  --save https://github.com/masx200/react-simple-global-state-store-hook.git
 ```
 
 或者
 
-```
+```powershell
 yarn add https://github.com/masx200/react-simple-global-state-store-hook.git
 ```
 
@@ -135,6 +135,8 @@ initGlobalState({
   testnumber: 88888785461111111
 });
 //全局状态 testnumber 生成 ,初始值为 88888785461111111
+import React from "react";
+
 function Htest() {
   const {
     testnumber: [number, setnumber]
@@ -158,6 +160,10 @@ function Htest() {
     </div>
   );
 }
+
+import { render } from "react-dom";
+
+render(<Htest />, document.getElementById("root"));
 ```
 
 # 为什么要写这个状态管理工具？
