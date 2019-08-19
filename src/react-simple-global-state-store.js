@@ -1,3 +1,5 @@
+"use strict"
+
 import { useState, useEffect, useCallback } from "react";
 
 function jsondeepequal(a, b) {
