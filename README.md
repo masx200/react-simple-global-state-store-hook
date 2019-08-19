@@ -63,9 +63,12 @@ yarn add https://github.com/masx200/react-simple-global-state-store-hook.git
 ```javascript
 import {
   useGlobalStore,
-  initGlobalState
+  initGlobalState,
+  getGlobalStates
 } from "react-simple-global-state-store-hook";
 ```
+
+### 函数`getGlobalStates`用来读取全局状态
 
 ### 函数`initGlobalState`用来生成状态初始值，
 
