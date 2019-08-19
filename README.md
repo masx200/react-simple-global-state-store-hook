@@ -165,7 +165,22 @@ function Htest() {
 [简单的示例](https://github.com/masx200/react-simple-global-state-store-hook/blob/master/src/index.js)
 -->
 
-## 原理介绍
+
+
+# 为什么要写这个状态管理工具？
+
+
+因为
+
+现有的 redux，mobx，vuex 等等管理工具使用太过繁琐，
+
+不喜欢那些使用特别麻烦的状态管理工具
+
+这个状态管理工具可能是学习成本和使用成本最低的
+
+状态双向绑定使用非常简单
+
+# 原理介绍
 
 ### 使用事件发布者订阅者模式
 
