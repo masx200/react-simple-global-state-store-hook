@@ -22,7 +22,7 @@ https://github.com/masx200/react-simple-global-state-store-hook
 
 全局状态改变时组件状态改变
 
-### 使用简单
+### 使用简单,可能是使用方法最简单的全局状态管理工具！
 
 只管理状态仓库,修改全局状态的方法返回给组件内部调用,
 
