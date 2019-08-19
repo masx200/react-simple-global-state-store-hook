@@ -12,7 +12,6 @@ https://github.com/masx200/react-simple-global-state-store-hook
 
 使用步骤只有两步，初始化全局状态，组件状态与全局状态双向绑定
 
-
 跟其他全局状态管理工具相比，使用这个库对于原有的代码不需要太多的修改
 
 只管理状态仓库,修改全局状态的方法返回给组件内部调用,
@@ -32,8 +31,6 @@ https://github.com/masx200/react-simple-global-state-store-hook
 组件状态改变时全局状态改变
 
 全局状态改变时组件状态改变
-
-
 
 ### 高性能 ，减少无用的组件刷新
 
@@ -77,7 +74,6 @@ import {
 ### 函数`useGlobalStore`用来订阅全局状态，组件状态与全局状态双向绑定
 
 第一个参数为一个`object`， 键名为全局状态名，键值为组件状态初始值
-
 
 返回值是个`object`
 
@@ -165,10 +161,7 @@ function Htest() {
 [简单的示例](https://github.com/masx200/react-simple-global-state-store-hook/blob/master/src/index.js)
 -->
 
-
-
 # 为什么要写这个状态管理工具？
-
 
 因为
 
@@ -218,6 +211,6 @@ https://reactjs.org/docs/hooks-overview.html#state-hook
 
 # EventTarget
 
-EventTarget是一个由可以接收事件的对象实现的接口，并且可以为它们创建侦听器
+EventTarget 是一个由可以接收事件的对象实现的接口，并且可以为它们创建侦听器
 
 https://developer.mozilla.org/zh-CN/docs/Web/API/EventTarget
