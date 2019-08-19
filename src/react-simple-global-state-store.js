@@ -1,5 +1,10 @@
 "use strict"
 
+export function getGlobalStates(){
+
+return newobjjson(simpleglobalstatestore)
+
+}
 import { useState, useEffect, useCallback } from "react";
 
 function jsondeepequal(a, b) {
