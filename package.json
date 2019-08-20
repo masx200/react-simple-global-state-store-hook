@@ -1,8 +1,8 @@
 {
     "scripts": {},
     "name": "react-simple-global-state-store-hook",
-    "version": "1.2.0",
-    "main": "./src/react-simple-global-state-store.js",
+    "version": "1.2.1",
+    "main": "./src_react-simple-global-state-store.js",
     "license": "MIT",
     "dependencies": {},
     "repository": {
