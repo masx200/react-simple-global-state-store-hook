@@ -39,8 +39,10 @@ https://github.com/masx200/react-simple-global-state-store-hook
 如果使用`context`会导致大量组件的无用刷新
 
 ## 仅仅使用 几十 行代码写成的极简 react 全局状态管理库!
-
+<!--
 [查看源代码](https://github.com/masx200/react-simple-global-state-store-hook/blob/master/src/react-simple-global-state-store.js)
+-->
+
 
 ### 演示网址
 
