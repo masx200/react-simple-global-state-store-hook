@@ -1,4 +1,7 @@
 "use strict";
+function jsonparsestringify(o) {
+  return JSON.parse(JSON.stringify(o));
+}
 export function getGlobalStates() {
   return newobjjson(simpleglobalstatestore);
 }
@@ -20,7 +23,7 @@ function newobjjson(obj) {
   if (typeof obj !== "object") {
     throw new TypeError("传入的参数必须是个object!");
   }
-  return JSON.parse(JSON.stringify(obj));
+  return jsonparsestringify(obj);
 }
 function isobject(o) {
   return (
@@ -47,11 +50,11 @@ export function useGlobalStore(jsonobject) {
     if (isinvalidstate(initialstate)) {
       throw Error("invalid state");
     }
-    const [state, setstate] = useState(initialstate);
+    const [state, setstate] = useState(jsonparsestringify(initialstate));
     const eventhandler = useCallback(() => {
       const newstate = simpleglobalstatestore[key];
       if (!jsondeepequal(newstate, state))
-        setstate(JSON.parse(JSON.stringify(newstate)));
+        setstate(jsonparsestringify(newstate));
     }, []);
     useEffect(() => {
       temptarget.addEventListener(eventname, eventhandler);
@@ -67,7 +70,7 @@ export function useGlobalStore(jsonobject) {
           throw Error("invalid state");
         }
         if (!jsondeepequal(newstate, state)) {
-          simpleglobalstatestore[key] = JSON.parse(JSON.stringify(newstate));
+          simpleglobalstatestore[key] = jsonparsestringify(newstate);
           console.log("全局状态改变", simpleglobalstatestore);
           temptarget.dispatchEvent(new Event(eventname));
         }
