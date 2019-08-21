@@ -222,4 +222,6 @@ EventTarget 是一个由可以接收事件的对象实现的接口，并且可�
 
 https://developer.mozilla.org/zh-CN/docs/Web/API/EventTarget
 
-在IE浏览器中需要添加 EventTarget 的polyfill
+在IE浏览器中需要添加 EventTarget 的polyfill和Event构造函数polyfill
+
+https://github.com/mysticatea/event-target-shim
