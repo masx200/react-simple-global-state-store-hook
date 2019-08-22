@@ -18,6 +18,10 @@ https://github.com/masx200/react-simple-global-state-store-hook
 
 就跟使用`useState`一样简单!
 
+
+希望世上再无 难用的全局状态管理
+
+
 # 跟 redux 对比,极为简洁!抛弃 redux！
 
 基于 `react hooks`和`EventTarget` 实现
