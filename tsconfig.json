@@ -1,0 +1,31 @@
+{
+  "compilerOptions": {
+    "esModuleInterop": true,
+"allowUnreachableCode":false,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+"declaration": true,
+    "noUnusedLocals": true,
+    "module": "esnext",
+    "target": "esnext",
+    "jsx": "preserve",
+    "removeComments": true,
+    "pretty": true,
+    "strict": true,
+    "outDir": "./src/",
+    "rootDir": "./",
+    "allowJs": true,
+    "sourceMap": true,
+    "strictNullChecks": true,
+    "baseUrl": ".",
+    "noFallthroughCasesInSwitch": true,
+    "experimentalDecorators": true,
+        "noImplicitAny": true,
+    "importHelpers": true,
+"moduleResolution":"node",
+"allowSyntheticDefaultImports":true,
+"alwaysStrict":true
+  },
+  "include": ["*"]
+  
+}
