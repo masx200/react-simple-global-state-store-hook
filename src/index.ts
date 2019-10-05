@@ -1,4 +1,14 @@
-export function ChangeState(name,value){}
+export function ChangeState(keyname,newvalue){
+if (isinvalidstate(newstate)) {
+          throw Error("invalid state");
+        }
+        if (!jsondeepequal(newstate, state)) {
+          simpleglobalstatestore[key] = jsonparsestringify(newstate);
+          console.log("全局状态改变", simpleglobalstatestore);
+          temptarget.dispatchEvent(new Event(eventname));
+        }
+
+}
 "use strict";
 function jsonparsestringify(o) {
   return JSON.parse(JSON.stringify(o));
