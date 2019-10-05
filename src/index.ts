@@ -29,8 +29,9 @@ function newobjjson(obj) {
 function isplainobject(o) {
   return (
     typeof o === "object" &&
-    Object.prototype.toString.call(o) === "[object Object]" &&
-    o.__proto__ === Object.prototype
+    Object.prototype.toString.call(o) === "[object Object]"
+/* &&
+    o.__proto__ === Object.prototype*/
   );
 }
 export function useGlobalStore(jsonobject) {
