@@ -1,5 +1,7 @@
-export function ChangeState(keyname,newvalue){
+export function changeState(keyname,newvalue){
 const key=keyname,newstate=newvalue
+const oldstate=simpleglobalstatestore[key]
+const state=oldstate
 if (isinvalidstate(newstate)) {
           throw Error("invalid state");
         }
