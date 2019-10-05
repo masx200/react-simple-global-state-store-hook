@@ -1,4 +1,4 @@
-
+export function ChangeState(name,value){}
 "use strict";
 function jsonparsestringify(o) {
   return JSON.parse(JSON.stringify(o));
@@ -34,7 +34,10 @@ function isplainobject(o) {
     o.__proto__ === Object.prototype*/
   );
 }
-export function useGlobalStore(jsonobject) {
+export function useGlobalStore(name){
+
+}
+function useGlobalStoreold(jsonobject) {
   if (!isplainobject(jsonobject)) {
     throw Error("invalid object");
   }
