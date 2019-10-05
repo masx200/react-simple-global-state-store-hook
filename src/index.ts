@@ -1,9 +1,13 @@
+export function useGlobalStore(name){
+ returm useGlobalStoreold({name:undefined})[name]
+}
 function isfunction(a){return "function"===typeof a}
 
 export function changeState(keyname,newvalue){
 
 const key=keyname
 let newstate=newvalue
+
 
 const oldstate=simpleglobalstatestore[key]
 const state=oldstate
@@ -55,9 +59,7 @@ function isplainobject(o) {
     o.__proto__ === Object.prototype*/
   );
 }
-export function useGlobalStore(name){
 
-}
 function useGlobalStoreold(jsonobject) {
   if (!isplainobject(jsonobject)) {
     throw Error("invalid object");
@@ -70,7 +72,7 @@ function useGlobalStoreold(jsonobject) {
       simpleglobalstatestore[key] = newjsonobj[key];
     }
     const initialstate =
-      "undefined" !== simpleglobalstatestore[key]
+      "undefined" !== typeof simpleglobalstatestore[key]
         ? simpleglobalstatestore[key]
         : newjsonobj[key];
     if (isinvalidstate(initialstate)) {
