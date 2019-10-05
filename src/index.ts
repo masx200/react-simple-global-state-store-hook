@@ -1,4 +1,5 @@
 export function ChangeState(keyname,newvalue){
+const key=keyname,newstate=newvalue
 if (isinvalidstate(newstate)) {
           throw Error("invalid state");
         }
