@@ -1,3 +1,4 @@
+function isfunction(a){return "function"===typeof a}
 export function changeState(keyname,newvalue){
 const key=keyname,newstate=newvalue
 const oldstate=simpleglobalstatestore[key]
