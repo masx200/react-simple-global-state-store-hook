@@ -1,5 +1,5 @@
 export function useGlobalStore(name){
- return useGlobalStoreold({name:undefined})[name]
+ return useGlobalStoreold({[name]:undefined})[name]
 }
 function isfunction(a){return "function"===typeof a}
 
