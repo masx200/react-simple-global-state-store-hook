@@ -24,7 +24,7 @@ function jsondeepequal(a, b) {
 function isinvalidstate(newstate) {
   return (
     "undefined" === typeof newstate ||
-    "function" === typeof newstate ||
+    //"function" === typeof newstate ||
     newstate === null ||
     "symbol" === typeof newstate
   );
