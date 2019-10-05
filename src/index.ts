@@ -1,8 +1,15 @@
 function isfunction(a){return "function"===typeof a}
+
 export function changeState(keyname,newvalue){
-const key=keyname,newstate=newvalue
+
+const key=keyname
+let newstate=newvalue
+
 const oldstate=simpleglobalstatestore[key]
 const state=oldstate
+if(isfunction(newstate)){
+newstate=newstate.call(undefined,state)
+}
 if (isinvalidstate(newstate)) {
           throw Error("invalid state");
         }
@@ -27,7 +34,7 @@ function jsondeepequal(a, b) {
 function isinvalidstate(newstate) {
   return (
     "undefined" === typeof newstate ||
-    //"function" === typeof newstate ||
+    "function" === typeof newstate ||
     newstate === null ||
     "symbol" === typeof newstate
   );
@@ -85,6 +92,9 @@ function useGlobalStoreold(jsonobject) {
     newobjtoreturn[key] = [
       state,
       newstate => {
+if(isfunction(newstate)){
+newstate=newstate.call(undefined,state)
+}
         if (isinvalidstate(newstate)) {
           throw Error("invalid state");
         }
