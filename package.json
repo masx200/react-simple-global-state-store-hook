@@ -1,4 +1,4 @@
-{ 
+{ "types":"./src/index.ts",
 "publishConfig": { "registry": "https://npm.pkg.github.com/@masx200" },
 
     "scripts": {},
