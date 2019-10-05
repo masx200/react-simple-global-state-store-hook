@@ -26,7 +26,7 @@ function newobjjson(obj) {
   }
   return jsonparsestringify(obj);
 }
-function isobject(o) {
+function isplainobject(o) {
   return (
     typeof o === "object" &&
     Object.prototype.toString.call(o) === "[object Object]" &&
@@ -34,7 +34,7 @@ function isobject(o) {
   );
 }
 export function useGlobalStore(jsonobject) {
-  if (!isobject(jsonobject)) {
+  if (!isplainobject(jsonobject)) {
     throw Error("invalid object");
   }
   const newjsonobj = newobjjson(jsonobject);
@@ -81,7 +81,7 @@ export function useGlobalStore(jsonobject) {
   return newobjtoreturn;
 }
 export function initGlobalState(jsonobject) {
-  if (!isobject(jsonobject)) {
+  if (!isplainobject(jsonobject)) {
     throw Error("invalid object");
   }
   const newjsonobj = newobjjson(jsonobject);
