@@ -87,12 +87,12 @@ import {
 
 第一个参数为一个`string`， 为全局状态名
 
-返回值是个`Array`
+返回值是个`Array`,返回一个有状态值，以及一个更新它的函数
 
 # API
 
 ```typescript
-function useGlobalStore(name: string): any;
+function useGlobalStore(name: string): [any, Function];
 function changeState(keyname: string, newvalue: any): void;
 function getGlobalStates(): {
   [key: string]: any;

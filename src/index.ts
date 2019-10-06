@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from "react";
-export function useGlobalStore(name: string) {
+export function useGlobalStore(name: string): [any, Function] {
   return useGlobalStoreold({ [name]: undefined })[name];
 }
 function isfunction(a: any): a is Function {
@@ -58,12 +58,12 @@ function isplainobject(o: any) {
 }
 function useGlobalStoreold(jsonobject: {
   [key: string]: any;
-}): { [key: string]: any } {
+}): { [key: string]: [any, Function] } {
   if (!isplainobject(jsonobject)) {
     throw Error("invalid object");
   }
   const newjsonobj = newobjjson(jsonobject);
-  const newobjtoreturn: { [key: string]: any } = {};
+  const newobjtoreturn: { [key: string]: [any, Function] } = {};
   Object.keys(newjsonobj).forEach(key => {
     const eventname = key;
     if ("undefined" === typeof simpleglobalstatestore[key]) {
