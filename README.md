@@ -157,7 +157,7 @@ import {
 initGlobalState({
   testnumber: 88
 });
-//全局状态 testnumber 生成 ,初始值为 88888785461111111
+//全局状态 testnumber 生成 ,初始值为 88
 import React from "react";
 function increment() {
   changeState("testnumber", a => a + 1);
