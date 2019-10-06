@@ -9,9 +9,7 @@ import typescript from "rollup-plugin-typescript";
 const banner=
 `const {Event,CustomEvent,requestAnimationFrame,URL,Blob,Element,Node,String,Array,document,Object,Reflect,Proxy,Symbol,Boolean,Promise,HTMLElement,Set,Math,Error,TypeError,EventTarget,JSON,Map}=window;`;
 */
-
-
-
+const external = ["react"];
 const myterserplugin = terser({
   sourcemap: true,
   toplevel: true,
@@ -30,10 +28,11 @@ const myterserplugin = terser({
 });
 export default [
   {
+    external,
     input: "./src/index.ts",
     output: [
       {
-//banner,
+        //banner,
         file: "./dist/index.js",
         format: "esm",
         sourcemap: true
@@ -57,10 +56,10 @@ export default [
     ]
   },
   {
+    external,
     input: "./dist/index.js",
     output: [
       {
-
         file: "./dist/index.min.js",
         format: "esm",
         sourcemap: true

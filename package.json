@@ -1,14 +1,16 @@
-{ "types":"./src/index.ts",
-"publishConfig": { "registry": "https://npm.pkg.github.com/@masx200" },
-
+{
+    "module": "./dist/index.js",
+    "main": "./dist/index.js",
+    "types": "./dist/index.d.ts",
+    "publishConfig": {
+        "registry": "https://npm.pkg.github.com/@masx200"
+    },
     "scripts": {
-"build":"rollup -c"
-},
+        "build": "  tsc  && rollup -c rollup.config.js"
+    },
     "name": "react-simple-global-state-store-hook",
-    "version": "1.2.1",
-    "main": "./src_react-simple-global-state-store.js",
+    "version": "1.2.2",
     "license": "MIT",
-    "dependencies": {},
     "repository": {
         "type": "git",
         "url": "git+https://github.com/masx200/react-simple-global-state-store-hook.git"
@@ -16,14 +18,20 @@
     "author": "masx200 <34191203+masx200@users.noreply.github.com>",
     "description": "使用react hooks实现的简单全局状态管理 react-simple-global-state-store-hook",
     "peerDependencies": {
-        "react": "^16.8.6"
+        "@types/react": "^16.9.5",
+        "react": "^16.10.2"
     },
     "bugs": {
         "url": "https://github.com/masx200/react-simple-global-state-store-hook/issues"
     },
     "homepage": "https://github.com/masx200/react-simple-global-state-store-hook#readme",
     "devDependencies": {
-"rollup": "^1.21.2",
+        "@types/react": "^16.9.5",
+        "react": "^16.10.2",
+        "@babel/core": "^7.6.2",
+        "@typescript-eslint/parser": "^2.3.2",
+        "eslint": "^6.5.1",
+        "rollup": "^1.21.2",
         "rollup-plugin-babel": "^4.3.3",
         "rollup-plugin-commonjs": "^10.1.0",
         "rollup-plugin-json": "^4.0.0",
@@ -34,7 +42,9 @@
         "rollup-plugin-typescript": "^1.0.1",
         "terser": "^4.3.1",
         "tslib": "^1.10.0",
-        "typescript": "^3.6.3"
-},
-    "keywords": []
+        "typescript": "^3.6.3",
+        "@typescript-eslint/eslint-plugin": "^2.3.2"
+    },
+    "keywords": [],
+    "dependencies": {}
 }

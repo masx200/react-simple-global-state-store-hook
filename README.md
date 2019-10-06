@@ -18,9 +18,7 @@ https://github.com/masx200/react-simple-global-state-store-hook
 
 就跟使用`useState`一样简单!
 
-
 希望世上再无 难用的全局状态管理
-
 
 # 跟 redux 对比,极为简洁!抛弃 redux！
 
@@ -43,10 +41,10 @@ https://github.com/masx200/react-simple-global-state-store-hook
 如果使用`context`会导致大量组件的无用刷新
 
 ## 仅仅使用 几十 行代码写成的极简 react 全局状态管理库!
+
 <!--
 [查看源代码](https://github.com/masx200/react-simple-global-state-store-hook/blob/master/src/react-simple-global-state-store.js)
 -->
-
 
 ### 演示网址
 
@@ -68,11 +66,16 @@ yarn add https://github.com/masx200/react-simple-global-state-store-hook.git
 
 ```javascript
 import {
+  changeState,
   useGlobalStore,
   initGlobalState,
   getGlobalStates
 } from "react-simple-global-state-store-hook";
 ```
+
+## 函数`changeState`用来改变全局状态,并且通知所有订阅状态的组件更新状态
+
+第一个参数是全局状态名,第二个参数是更新的状态值,或者函数返回新状态值
 
 ### 函数`getGlobalStates`用来读取全局状态
 
@@ -82,9 +85,24 @@ import {
 
 ### 函数`useGlobalStore`用来订阅全局状态，组件状态与全局状态双向绑定
 
-第一个参数为一个`object`， 键名为全局状态名，键值为组件状态初始值
+第一个参数为一个`string`， 为全局状态名
 
-返回值是个`object`
+返回值是个`Array`
+
+# API
+
+```typescript
+function useGlobalStore(name: string): any;
+function changeState(keyname: string, newvalue: any): void;
+function getGlobalStates(): {
+  [key: string]: any;
+};
+function initGlobalState(jsonobject: {
+  [key: string]: any;
+}): {
+  [key: string]: any;
+};
+```
 
 ## 基础语法
 
@@ -94,14 +112,14 @@ import {
 
 就跟使用`useState`一样简单!
 
-```javascript
+```jsx
 import React, { useState } from "react";
 const [count, setCount] = useState(0);
 ```
 
 使用`react-simple-global-state-store-hook`
 
-```javascript
+```jsx
 import {
   useGlobalStore,
   initGlobalState
@@ -112,52 +130,60 @@ initGlobalState({
   全局状态testname: "初始值名字"
 });
 function component() {
-  const {
-    全局状态testname: [count, setCount]
-  } = useGlobalStore({ 全局状态testname: "初始值" });
+  const [count, setCount] = useGlobalStore("全局状态testname");
   return <div>{count}</div>;
 }
 ```
 
-### 也可以在一句中，定义多个全局共享状态
+<!-- ### 也可以在一句中，定义多个全局共享状态
 
 ```javascript
 const {
   count: [count, setCount],
   name: [name, setname]
 } = useGlobalStore({ count: 0, name: "well" });
-```
+``` -->
 
 # 例如
 
 要生成全局状态 `testnumber` ,初始值为 `88888785461111111`
 
-```javascript
+```jsx
 import {
+  changeState,
   useGlobalStore,
   initGlobalState
 } from "react-simple-global-state-store-hook";
 initGlobalState({
-  testnumber: 88888785461111111
+  testnumber: 88
 });
 //全局状态 testnumber 生成 ,初始值为 88888785461111111
 import React from "react";
+function increment() {
+  changeState("testnumber", a => a + 1);
+}
+function random() {
+  changeState("testnumber", Math.random());
+}
 
 function Htest() {
-  const {
-    testnumber: [number, setnumber]
-  } = useGlobalStore({ testnumber: 78546 });
+  const [number, setnumber] = useGlobalStore("testnumber");
   //全局状态 testnumber 已经 生成 ,不会重复生成初始值
 
   return (
     <div>
-      <p>
+      <p
+        onClick={() => {
+          random();
+        }}
+      >
         number:
         {number}
       </p>
       <button
         onClick={() => {
-          setnumber(number + 3);
+          increment();
+          //   setnumber(number + 1);
           /*修改全局状态 testnumber,其他使用了全局状态number的组件也会刷新数据*/
         }}
       >
@@ -226,10 +252,8 @@ EventTarget 是一个由可以接收事件的对象实现的接口，并且可�
 
 https://developer.mozilla.org/zh-CN/docs/Web/API/EventTarget
 
-在IE浏览器中需要添加 EventTarget 的polyfill和Event构造函数polyfill
+在 `IE` 浏览器和`Edge`中使用需要添加 `EventTarget` 的 `polyfill` 和 `Event` 构造函数 `polyfill`
 
 https://github.com/mysticatea/event-target-shim
 
-https://github.com/masx200/webpack-react-vue-spa-awesome-config/blob/master/polyfill/EventTarget-polyfill.js
-
-https://github.com/masx200/webpack-react-vue-spa-awesome-config/blob/master/polyfill/event-polyfill.js
+https://github.com/masx200/webpack-react-vue-spa-awesome-config/blob/master/polyfill/dist/polyfill.min.js
