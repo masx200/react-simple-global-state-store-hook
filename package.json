@@ -3,12 +3,12 @@
     "main": "./dist/index.js",
     "types": "./dist/index.d.ts",
     "publishConfig": {
-        "registry": "https://npm.pkg.github.com/@masx200"
+        "registry": "https://npm.pkg.github.com/"
     },
     "scripts": {
         "build": "  tsc  && rollup -c rollup.config.js"
     },
-    "name": "react-simple-global-state-store-hook",
+    "name": "@masx200/react-simple-global-state-store-hook",
     "version": "1.2.2",
     "license": "MIT",
     "repository": {
