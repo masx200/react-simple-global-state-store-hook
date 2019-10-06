@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from "react";
 export function useGlobalStore(name: string): [any, Function] {
-  return useGlobalStoreold({ [name]: undefined })[name];
+  return useGlobalStoreold({ [name]: "" })[name];
 }
 function isfunction(a: any): a is Function {
   return "function" === typeof a;

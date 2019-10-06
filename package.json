@@ -9,7 +9,7 @@
         "build": "  tsc  && rollup -c rollup.config.js"
     },
     "name": "@masx200/react-simple-global-state-store-hook",
-    "version": "1.2.2",
+    "version": "1.2.3",
     "license": "MIT",
     "repository": {
         "type": "git",

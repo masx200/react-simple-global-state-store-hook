@@ -2,7 +2,7 @@ import { useState, useCallback, useEffect } from "react";
 
 function useGlobalStore(name) {
     return useGlobalStoreold({
-        [name]: undefined
+        [name]: ""
     })[name];
 }
 
