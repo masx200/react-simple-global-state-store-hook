@@ -70,7 +70,7 @@ import {
   useGlobalStore,
   initGlobalState,
   getGlobalStates
-} from "react-simple-global-state-store-hook";
+} from "@masx200/react-simple-global-state-store-hook";
 ```
 
 ## 函数`changeState`用来改变全局状态,并且通知所有订阅状态的组件更新状态
@@ -123,7 +123,7 @@ const [count, setCount] = useState(0);
 import {
   useGlobalStore,
   initGlobalState
-} from "react-simple-global-state-store-hook";
+} from "@masx200/react-simple-global-state-store-hook";
 
 initGlobalState({
   testnumber: "初始值数字",
@@ -153,7 +153,7 @@ import {
   changeState,
   useGlobalStore,
   initGlobalState
-} from "react-simple-global-state-store-hook";
+} from "@masx200/react-simple-global-state-store-hook";
 initGlobalState({
   testnumber: 88
 });
