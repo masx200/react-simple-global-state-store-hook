@@ -94,12 +94,13 @@ import {
 # API
 
 ```typescript
-function useGlobalStore(name: string): [any, Function];
-function changeState(keyname: string, newvalue: any): void;
-function getGlobalStates(): {
+declare type Dispatch = (value: any) => void;
+declare function useGlobalStore(name: string): [any, Dispatch];
+declare function changeState(keyname: string, newvalue: any): void;
+declare function getGlobalStates(): {
   [key: string]: any;
 };
-function initGlobalState(jsonobject: {
+declare function initGlobalState(jsonobject: {
   [key: string]: any;
 }): {
   [key: string]: any;

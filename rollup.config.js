@@ -1,3 +1,4 @@
+import sourcemaps from "rollup-plugin-sourcemaps";
 // import babel from "rollup-plugin-babel";
 import resolve from "rollup-plugin-node-resolve";
 import commonjs from "rollup-plugin-commonjs";
@@ -39,6 +40,7 @@ export default [
       }
     ],
     plugins: [
+      sourcemaps(),
       json(),
       resolve(),
       commonjs(),
@@ -65,7 +67,7 @@ export default [
         sourcemap: true
       }
     ],
-    plugins: [resolve(), commonjs(), myterserplugin]
+    plugins: [resolve(), commonjs(), myterserplugin, sourcemaps()]
   }
   /*   {
     input: "./test/index.js",
