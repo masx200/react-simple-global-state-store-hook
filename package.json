@@ -26,6 +26,9 @@
     },
     "homepage": "https://github.com/masx200/react-simple-global-state-store-hook#readme",
     "devDependencies": {
+         "terser": "^4.4.2",
+        "serialize-javascript":"^2.1.1",
+        
 "rollup-plugin-typescript2": "^0.24.3",
         "@types/react": "^16.9.5",
         "react": "^16.10.2",
@@ -41,7 +44,7 @@
         "rollup-plugin-scss": "^1.0.2",
         "rollup-plugin-terser": "^5.1.2",
         "rollup-plugin-typescript": "^1.0.1",
-        "terser": "^4.3.1",
+      
         "tslib": "^1.10.0",
         "typescript": "^3.6.3",
         "@typescript-eslint/eslint-plugin": "^2.3.2"
