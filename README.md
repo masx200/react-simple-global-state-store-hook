@@ -36,6 +36,8 @@ https://github.com/masx200/react-simple-global-state-store-hook
 
 ### 高性能 ，减少无用的组件刷新
 
+不使用 `React.createContext`
+
 不使用`context`刷新组件，而是使用`setstate`只刷新单个组件
 
 如果使用`context`会导致大量组件的无用刷新
