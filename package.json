@@ -1,10 +1,10 @@
-{
-    "version": "1.2.4",
-    "module": "./dist/index.js",
-    "main": "./dist/index.js",
+{"type": "module",
+    "version": "1.2.5",
+    "module": "./dist/index.min.js",
+    "main": "./dist/index.min.js",
     "types": "./dist/index.d.ts",
     "publishConfig": {
-        "registry": "https://npm.pkg.github.com/"
+        "registry": "https://registry.npmjs.org/"
     },
     "scripts": {
         "build": "   rollup -c rollup.config.js"
