@@ -28,6 +28,8 @@
     "homepage": "https://github.com/masx200/react-simple-global-state-store-hook#readme",
     "devDependencies": {
 
+"eslint": "^6.8.0",
+"minimist":"1.2.5",
 "acorn":"7.1.1",
 
         "@babel/core": "^7.6.2",
@@ -35,7 +37,7 @@
         "@typescript-eslint/eslint-plugin": "^2.3.2",
         "@typescript-eslint/parser": "^2.3.2",
 
-        "eslint": "^6.8.0",
+        
 
         "react": "^16.10.2",
         "rollup": "^1.27.9",
