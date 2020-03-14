@@ -27,12 +27,16 @@
     },
     "homepage": "https://github.com/masx200/react-simple-global-state-store-hook#readme",
     "devDependencies": {
+
 "acorn":"7.1.1",
+
         "@babel/core": "^7.6.2",
         "@types/react": "^16.9.5",
         "@typescript-eslint/eslint-plugin": "^2.3.2",
         "@typescript-eslint/parser": "^2.3.2",
-        "eslint": "^6.0.0",
+
+        "eslint": "^6.8.0",
+
         "react": "^16.10.2",
         "rollup": "^1.27.9",
         "rollup-plugin-babel": "^4.3.3",
