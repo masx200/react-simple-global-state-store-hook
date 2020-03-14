@@ -259,4 +259,4 @@ https://developer.mozilla.org/zh-CN/docs/Web/API/EventTarget
 
 https://github.com/mysticatea/event-target-shim
 
-https://github.com/masx200/webpack-react-vue-spa-awesome-config/blob/master/polyfill/dist/polyfill.min.js
+https://cdn.jsdelivr.net/gh/masx200/webpack-react-vue-spa-awesome-config@2.6.4/polyfill/polyfill.min.js
