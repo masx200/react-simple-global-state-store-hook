@@ -1,6 +1,6 @@
 {
     "type": "module",
-    "version": "1.2.7",
+    "version": "1.2.8",
     "module": "./dist/index.min.js",
     "main": "./dist/index.min.js",
     "types": "./dist/index.d.ts",

@@ -28,8 +28,8 @@ export function changeState(keyname: string, newvalue: any) {
 function jsonparsestringify(o: { [key: string]: any }): { [key: string]: any } {
     return JSON.parse(JSON.stringify(o));
 }
-export function getGlobalStates() {
-    return newobjjson(simpleglobalstatestore);
+export function getGlobalStates(name: string) {
+    return newobjjson(simpleglobalstatestore)[name];
 }
 
 function jsondeepequal(a: any, b: any) {

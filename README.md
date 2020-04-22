@@ -93,19 +93,7 @@ import {
 
 # API
 
-```typescript
-declare type Dispatch = (value: any) => void;
-declare function useGlobalStore(name: string): [any, Dispatch];
-declare function changeState(keyname: string, newvalue: any): void;
-declare function getGlobalStates(): {
-    [key: string]: any;
-};
-declare function initGlobalState(jsonobject: {
-    [key: string]: any;
-}): {
-    [key: string]: any;
-};
-```
+
 
 ## 基础语法
 
@@ -138,14 +126,7 @@ function component() {
 }
 ```
 
-<!-- ### 也可以在一句中，定义多个全局共享状态
 
-```javascript
-const {
-  count: [count, setCount],
-  name: [name, setname]
-} = useGlobalStore({ count: 0, name: "well" });
-``` -->
 
 # 例如
 

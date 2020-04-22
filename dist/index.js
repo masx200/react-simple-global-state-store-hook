@@ -2,7 +2,7 @@ import { useState, useCallback, useEffect } from "react";
 
 function useGlobalStore(name) {
     return useGlobalStoreold({
-        [name]: "",
+        [name]: ""
     })[name];
 }
 
@@ -24,10 +24,7 @@ function changeState(keyname, newvalue) {
     }
     if (!jsondeepequal(newstate, state)) {
         simpleglobalstatestore[key] = jsonparsestringify(newstate);
-        console.log(
-            "\u5168\u5c40\u72b6\u6001\u6539\u53d8",
-            simpleglobalstatestore
-        );
+        console.log("\u5168\u5c40\u72b6\u6001\u6539\u53d8", simpleglobalstatestore);
         temptarget.dispatchEvent(new Event(eventname));
     }
 }
@@ -36,8 +33,8 @@ function jsonparsestringify(o) {
     return JSON.parse(JSON.stringify(o));
 }
 
-function getGlobalStates() {
-    return newobjjson(simpleglobalstatestore);
+function getGlobalStates(name) {
+    return newobjjson(simpleglobalstatestore)[name];
 }
 
 function jsondeepequal(a, b) {
@@ -45,15 +42,10 @@ function jsondeepequal(a, b) {
 }
 
 function isinvalidstate(newstate) {
-    return (
-        "undefined" === typeof newstate ||
-        isfunction(newstate) ||
-        newstate === null ||
-        "symbol" === typeof newstate
-    );
+    return "undefined" === typeof newstate || isfunction(newstate) || newstate === null || "symbol" === typeof newstate;
 }
 
-const temptarget = new EventTarget();
+const temptarget = new EventTarget;
 
 const simpleglobalstatestore = {};
 
@@ -65,10 +57,7 @@ function newobjjson(obj) {
 }
 
 function isplainobject(o) {
-    return (
-        typeof o === "object" &&
-        Object.prototype.toString.call(o) === "[object Object]"
-    );
+    return typeof o === "object" && Object.prototype.toString.call(o) === "[object Object]";
 }
 
 function useGlobalStoreold(jsonobject) {
@@ -77,23 +66,19 @@ function useGlobalStoreold(jsonobject) {
     }
     const newjsonobj = newobjjson(jsonobject);
     const newobjtoreturn = {};
-    Object.keys(newjsonobj).forEach((key) => {
+    Object.keys(newjsonobj).forEach(key => {
         const eventname = key;
         if ("undefined" === typeof simpleglobalstatestore[key]) {
             simpleglobalstatestore[key] = newjsonobj[key];
         }
-        const initialstate =
-            "undefined" !== typeof simpleglobalstatestore[key]
-                ? simpleglobalstatestore[key]
-                : newjsonobj[key];
+        const initialstate = "undefined" !== typeof simpleglobalstatestore[key] ? simpleglobalstatestore[key] : newjsonobj[key];
         if (isinvalidstate(initialstate)) {
             throw Error("invalid state");
         }
         const [state, setstate] = useState(jsonparsestringify(initialstate));
         const eventhandler = useCallback(() => {
             const newstate = simpleglobalstatestore[key];
-            if (!jsondeepequal(newstate, state))
-                setstate(jsonparsestringify(newstate));
+            if (!jsondeepequal(newstate, state)) setstate(jsonparsestringify(newstate));
         }, []);
         useEffect(() => {
             temptarget.addEventListener(eventname, eventhandler);
@@ -102,25 +87,19 @@ function useGlobalStoreold(jsonobject) {
                 temptarget.removeEventListener(eventname, eventhandler);
             };
         }, []);
-        newobjtoreturn[key] = [
-            state,
-            (newstate) => {
-                if (isfunction(newstate)) {
-                    newstate = newstate.call(undefined, state);
-                }
-                if (isinvalidstate(newstate)) {
-                    throw Error("invalid state");
-                }
-                if (!jsondeepequal(newstate, state)) {
-                    simpleglobalstatestore[key] = jsonparsestringify(newstate);
-                    console.log(
-                        "\u5168\u5c40\u72b6\u6001\u6539\u53d8",
-                        simpleglobalstatestore
-                    );
-                    temptarget.dispatchEvent(new Event(eventname));
-                }
-            },
-        ];
+        newobjtoreturn[key] = [ state, newstate => {
+            if (isfunction(newstate)) {
+                newstate = newstate.call(undefined, state);
+            }
+            if (isinvalidstate(newstate)) {
+                throw Error("invalid state");
+            }
+            if (!jsondeepequal(newstate, state)) {
+                simpleglobalstatestore[key] = jsonparsestringify(newstate);
+                console.log("\u5168\u5c40\u72b6\u6001\u6539\u53d8", simpleglobalstatestore);
+                temptarget.dispatchEvent(new Event(eventname));
+            }
+        } ];
     });
     return newobjtoreturn;
 }
@@ -131,7 +110,7 @@ function initGlobalState(jsonobject) {
     }
     const newjsonobj = newobjjson(jsonobject);
     const newobjtoreturn = {};
-    Object.keys(newjsonobj).forEach((key) => {
+    Object.keys(newjsonobj).forEach(key => {
         if ("undefined" === typeof simpleglobalstatestore[key]) {
             simpleglobalstatestore[key] = newjsonobj[key];
         }
