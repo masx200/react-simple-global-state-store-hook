@@ -66,6 +66,10 @@ yarn add https://github.com/masx200/react-simple-global-state-store-hook.git
 
 # 用法
 
+# API
+
+https://github.com/masx200/react-simple-global-state-store-hook/blob/master/dist/index.d.ts
+
 ```javascript
 import {
     changeState,
@@ -79,7 +83,7 @@ import {
 
 第一个参数是全局状态名,第二个参数是更新的状态值,或者函数返回新状态值
 
-### 函数`getGlobalStates`用来读取全局状态
+### 函数`getGlobalStates`用来读取全局状态中的某一个值
 
 ### 函数`initGlobalState`用来生成状态初始值，可以多次使用
 
@@ -90,10 +94,6 @@ import {
 第一个参数为一个`string`， 为全局状态名
 
 返回值是个`Array`,返回一个有状态值，以及一个更新它的函数
-
-# API
-
-
 
 ## 基础语法
 
@@ -125,8 +125,6 @@ function component() {
     return <div>{count}</div>;
 }
 ```
-
-
 
 # 例如
 
