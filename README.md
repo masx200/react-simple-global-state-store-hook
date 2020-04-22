@@ -93,6 +93,8 @@ import {
 
 # API
 
+https://github.com/masx200/react-simple-global-state-store-hook/blob/master/dist/index.d.ts
+
 ```typescript
 declare type Dispatch = (value: any) => void;
 declare function useGlobalStore(name: string): [any, Dispatch];
