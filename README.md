@@ -68,10 +68,10 @@ yarn add https://github.com/masx200/react-simple-global-state-store-hook.git
 
 ```javascript
 import {
-  changeState,
-  useGlobalStore,
-  initGlobalState,
-  getGlobalStates
+    changeState,
+    useGlobalStore,
+    initGlobalState,
+    getGlobalStates,
 } from "@masx200/react-simple-global-state-store-hook";
 ```
 
@@ -98,12 +98,12 @@ declare type Dispatch = (value: any) => void;
 declare function useGlobalStore(name: string): [any, Dispatch];
 declare function changeState(keyname: string, newvalue: any): void;
 declare function getGlobalStates(): {
-  [key: string]: any;
+    [key: string]: any;
 };
 declare function initGlobalState(jsonobject: {
-  [key: string]: any;
+    [key: string]: any;
 }): {
-  [key: string]: any;
+    [key: string]: any;
 };
 ```
 
@@ -124,17 +124,17 @@ const [count, setCount] = useState(0);
 
 ```jsx
 import {
-  useGlobalStore,
-  initGlobalState
+    useGlobalStore,
+    initGlobalState,
 } from "@masx200/react-simple-global-state-store-hook";
 
 initGlobalState({
-  testnumber: "初始值数字",
-  全局状态testname: "初始值名字"
+    testnumber: "初始值数字",
+    全局状态testname: "初始值名字",
 });
 function component() {
-  const [count, setCount] = useGlobalStore("全局状态testname");
-  return <div>{count}</div>;
+    const [count, setCount] = useGlobalStore("全局状态testname");
+    return <div>{count}</div>;
 }
 ```
 
@@ -153,47 +153,47 @@ const {
 
 ```jsx
 import {
-  changeState,
-  useGlobalStore,
-  initGlobalState
+    changeState,
+    useGlobalStore,
+    initGlobalState,
 } from "@masx200/react-simple-global-state-store-hook";
 initGlobalState({
-  testnumber: 88
+    testnumber: 88,
 });
 //全局状态 testnumber 生成 ,初始值为 88
 import React from "react";
 function increment() {
-  changeState("testnumber", a => a + 1);
+    changeState("testnumber", (a) => a + 1);
 }
 function random() {
-  changeState("testnumber", Math.random());
+    changeState("testnumber", Math.random());
 }
 
 function Htest() {
-  const [number, setnumber] = useGlobalStore("testnumber");
-  //全局状态 testnumber 已经 生成 ,不会重复生成初始值
+    const [number, setnumber] = useGlobalStore("testnumber");
+    //全局状态 testnumber 已经 生成 ,不会重复生成初始值
 
-  return (
-    <div>
-      <p
-        onClick={() => {
-          random();
-        }}
-      >
-        number:
-        {number}
-      </p>
-      <button
-        onClick={() => {
-          increment();
-          //   setnumber(number + 1);
-          /*修改全局状态 testnumber,其他使用了全局状态number的组件也会刷新数据*/
-        }}
-      >
-        修改number
-      </button>
-    </div>
-  );
+    return (
+        <div>
+            <p
+                onClick={() => {
+                    random();
+                }}
+            >
+                number:
+                {number}
+            </p>
+            <button
+                onClick={() => {
+                    increment();
+                    //   setnumber(number + 1);
+                    /*修改全局状态 testnumber,其他使用了全局状态number的组件也会刷新数据*/
+                }}
+            >
+                修改number
+            </button>
+        </div>
+    );
 }
 
 import { render } from "react-dom";

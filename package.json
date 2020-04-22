@@ -8,7 +8,8 @@
         "registry": "https://registry.npmjs.org/"
     },
     "scripts": {
-        "build": "rollup -c rollup.config.js"
+        "build": "rollup -c rollup.config.js",
+        "prettier": "prettier **/*.ts **/*.js --write **/*.json **/*.md"
     },
     "name": "@masx200/react-simple-global-state-store-hook",
     "license": "MIT",
@@ -27,18 +28,13 @@
     },
     "homepage": "https://github.com/masx200/react-simple-global-state-store-hook#readme",
     "devDependencies": {
-
-"eslint": "^6.8.0",
-"minimist":"1.2.5",
-"acorn":"7.1.1",
-
+        "eslint": "^6.8.0",
+        "minimist": "1.2.5",
+        "acorn": "7.1.1",
         "@babel/core": "^7.6.2",
         "@types/react": "^16.9.5",
         "@typescript-eslint/eslint-plugin": "^2.3.2",
         "@typescript-eslint/parser": "^2.3.2",
-
-        
-
         "react": "^16.10.2",
         "rollup": "^1.27.9",
         "rollup-plugin-babel": "^4.3.3",
