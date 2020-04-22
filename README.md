@@ -1,3 +1,12 @@
+# 注意,此代码存储库已被弃用,不会再更新维护了.
+
+# Note that this code repository has been deprecated and will not be updated and maintained.
+
+
+
+
+
+
 # react-simple-global-state-store-hook
 
 https://github.com/masx200/react-simple-global-state-store-hook
