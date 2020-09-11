@@ -3,7 +3,7 @@
 # Note that this code repository has been deprecated and will not be updated and maintained.
 
 
-
+原因：个人项目，以后不会再用react了
 
 
 
